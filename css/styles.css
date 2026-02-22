@@ -81,55 +81,83 @@ img {
 
 .btn {
     display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 50px;
+    padding: 1.2rem 2.8rem;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-align: center;
     cursor: pointer;
     border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #E07A5F 0%, #D84315 100%);
-    /* More vibrant gradient */
+    background: linear-gradient(135deg, #FF9966 0%, #FF5E62 100%);
     color: white;
-    font-size: 1.2rem;
-    /* Larger text */
-    padding: 1.2rem 2.5rem;
-    /* Larger button */
-    box-shadow: 0 8px 20px rgba(216, 67, 21, 0.3);
-    border: none;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 25px rgba(255, 94, 98, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    transition: all 0.6s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(216, 67, 21, 0.4);
-    filter: brightness(1.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(255, 94, 98, 0.4);
+    filter: brightness(1.05);
 }
 
 .btn-large {
-    font-size: 1.3rem;
-    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+    padding: 1.4rem 3rem;
     width: 100%;
-    max-width: 400px;
-    background-color: #27AE60;
-    /* Green for final conversion */
+    max-width: 450px;
+    background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    box-shadow: 0 10px 30px rgba(0, 176, 155, 0.3);
 }
 
 .btn-large:hover {
-    background-color: #219150;
-    transform: scale(1.02);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 176, 155, 0.4);
 }
 
 .btn-pulse {
-    animation: pulse 2s infinite;
+    animation: btnPulse 2s infinite;
+}
+
+@keyframes btnPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes pulse {
@@ -183,36 +211,32 @@ img {
     /* Limit width for readability since it's centered */
 }
 
-.hero-image-container {
-    margin: 1rem auto 2rem auto;
-    /* Centered with auto margins */
-    max-width: 400px;
-    /* Control image size */
+/* Hero Mockup Styles */
+.hero-mockup-wrapper {
+    position: relative;
+    width: 60%;
+    margin: 10px auto;
+    perspective: 1000px;
+}
+
+.hero-mockup-img {
     width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-image-container img,
-.hero-image-container video {
-    box-shadow: var(--shadow-lg);
-    border: 6px solid white;
-    transform: rotate(-1deg);
-    transition: transform 0.5s ease;
-    margin: 0 auto;
-    /* Ensure image itself is centered */
-    border-radius: var(--radius);
-    /* Ensure video has rounded corners too */
-    max-width: 100%;
-    /* Ensure responsiveness */
     height: auto;
-    object-fit: cover;
-    display: block;
+    border-radius: 12px;
+    animation: floatMockup 4s ease-in-out infinite;
+    transition: transform 0.5s ease;
 }
 
-.hero-image-container:hover img,
-.hero-image-container:hover video {
-    transform: rotate(0deg) scale(1.02);
+@keyframes floatMockup {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Brand Name Update */
@@ -298,37 +322,7 @@ img {
     }
 }
 
-/* Hero Image Container Update for Badge */
-.hero-image-container {
-    margin: 1rem auto 2rem auto;
-    max-width: 400px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    /* Needed for absolute positioning of badge */
-}
 
-.hero-image-container video {
-    border-radius: 24px;
-    /* Soft rounded corners */
-    border: 6px solid #FFF;
-    /* White inner frame */
-    box-shadow:
-        0 0 0 4px #D4A373,
-        /* Gold outer ring */
-        0 20px 50px rgba(197, 157, 95, 0.3);
-    /* Soft gold/brown shadow */
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.hero-image-container:hover video {
-    transform: scale(1.02);
-    /* Subtle zoom on hover */
-}
 
 .bonus-badge {
     position: absolute;
@@ -372,11 +366,11 @@ img {
     display: inline-block;
     background: #E8F5E9;
     color: #2E7D32;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .cta-group {
@@ -1415,9 +1409,25 @@ footer p {
         /* Reset margin if any */
     }
 
-    /* Adjusting for the new centered hero layout */
-    .hero-image-container {
-        max-width: 80%;
+    /* Mobile Plan Layout */
+    .offer-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .offer-box {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .offer-box.complete {
+        transform: scale(1);
+        /* Reset scale on mobile */
+    }
+
+    .hero-mockup-wrapper {
+        width: 80%;
+        margin: 5px auto 15px;
     }
 
     /* Force 2 columns on mobile for features */
@@ -2234,4 +2244,121 @@ footer p {
         width: 28px;
         height: 28px;
     }
+}
+
+/* Redirect Popup Styles */
+.redirect-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.redirect-popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.redirect-popup-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 24px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.redirect-popup-overlay.show .redirect-popup-content {
+    transform: translateY(0);
+}
+
+.spiritual-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: pulseIcon 2s ease-in-out infinite;
+}
+
+@keyframes pulseIcon {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.redirect-popup-content h2 {
+    color: #5D4037;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.redirect-popup-content p {
+    color: #757575;
+    margin-bottom: 1.5rem;
+}
+
+.spiritual-quote {
+    font-style: italic;
+    color: var(--primary) !important;
+    font-size: 1.2rem;
+    margin: 2rem 0 !important;
+}
+
+.loading-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #F0F0F0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.loading-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FF9966, #FF5E62);
+    width: 0%;
+}
+
+.redirect-popup-overlay.show .loading-bar-fill {
+    animation: fillProgress 3.5s linear forwards;
+}
+
+@keyframes fillProgress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.redirect-footer {
+    font-size: 0.9rem;
+    color: #999 !important;
+}
+
+/* Hide Urgent Banner & Notifications */
+.urgency-banner,
+.sales-popup {
+    display: none !important;
 }
