@@ -887,12 +887,13 @@ img {
     display: inline-block;
     background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
     color: #2E7D32;
-    padding: 4px 12px;
+    padding: 6px 14px;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 10px rgba(46, 125, 50, 0.15);
+    white-space: nowrap;
     animation: pulse-green 2s infinite;
 }
 
@@ -1049,15 +1050,25 @@ img {
 }
 
 .offer-box.complete {
-    border: 2px solid #D4A373;
-    /* Strong Gold Border */
+    border: 3px solid #D4A373;
+    /* Stronger Gold Border */
     background: #FFF8E1;
     /* Visible Warm Gold Tint Background */
-    box-shadow: 0 20px 50px rgba(212, 163, 115, 0.25);
-    /* Stronger Glow */
-    transform: scale(1.05);
+    animation: goldGlow 3s infinite alternate;
     z-index: 10;
     position: relative;
+}
+
+@keyframes goldGlow {
+    from {
+        box-shadow: 0 10px 30px rgba(212, 163, 115, 0.2);
+        border-color: #D4A373;
+    }
+
+    to {
+        box-shadow: 0 15px 45px rgba(212, 163, 115, 0.5), 0 0 0 4px rgba(212, 163, 115, 0.2);
+        border-color: #EBC08D;
+    }
 }
 
 .offer-box.complete::before {
@@ -1206,13 +1217,10 @@ img {
     gap: 5px;
     font-size: 0.8rem;
     color: #999;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
-.guarantee-mini i {
-    width: 14px;
-    height: 14px;
-}
+
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
@@ -1401,12 +1409,40 @@ footer p {
         display: none;
     }
 
+    /* Button Mobile Optimization */
+    .btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 100%;
+        letter-spacing: 0px;
+        line-height: 1;
+        white-space: nowrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-large {
+        padding: 1.1rem 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .cta-group {
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+    }
+
     .bonus-card {
-        flex: 0 0 85%;
-        /* Show 85% of the card to hint at more content */
+        flex: 0 0 75%;
+        /* Show more of next card */
         scroll-snap-align: center;
-        margin-right: 0;
-        /* Reset margin if any */
+        padding: 1rem;
     }
 
     /* Mobile Plan Layout */
@@ -1878,7 +1914,7 @@ footer p {
 
 @media (min-width: 768px) {
     .kit-cards-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .kit-track img {
