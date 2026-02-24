@@ -1190,6 +1190,51 @@ img {
     /* Green checks for basic */
 }
 
+/* Bonus List Styling for Cards */
+.bonus-list-container {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 10px 0 20px;
+    border: 1px dashed var(--primary);
+}
+
+.bonus-list-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.bonus-grid-pills {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+}
+
+.bonus-item-pill {
+    background: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #5D4037;
+    border: 1px solid rgba(197, 157, 95, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.bonus-item-pill i {
+    color: var(--primary);
+    width: 12px;
+    height: 12px;
+}
+
 .checkout-button {
     margin-top: auto;
     /* Push to bottom */
