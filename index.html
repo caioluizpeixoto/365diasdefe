@@ -51,6 +51,18 @@
 
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Wistia Video -->
+    <script src="https://fast.wistia.com/player.js" async></script>
+    <script src="https://fast.wistia.com/embed/r67q5xf1gx.js" async type="module"></script>
+    <style>
+        wistia-player[media-id='r67q5xf1gx']:not(:defined) {
+            background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/r67q5xf1gx/swatch');
+            display: block;
+            filter: blur(5px);
+            padding-top: 177.78%;
+        }
+    </style>
 </head>
 
 <body>
@@ -66,24 +78,24 @@
                 <span class="badge animate-on-scroll">✨ +3.000 lares abençoados</span>
                 <span class="brand-name animate-on-scroll">🕊️ <span class="brand-text">Potinho da Bênção</span></span>
 
-                <!-- Mockup Hero Image -->
-                <div class="hero-mockup-wrapper animate-on-scroll delay-300">
-                    <img src="https://i.ibb.co/yBSgBB9p/Gemini-Generated-Image-49rw8h49rw8h49rw-1.png"
-                        alt="Mockup Potinho da Bênção" class="hero-mockup-img">
-                </div>
-
                 <h1 class="animate-on-scroll delay-100">Alimente seu Espírito Diariamente com <span
                         class="highlight-text">365 Pílulas de Fé</span></h1>
                 <p class="hero-subheadline animate-on-scroll delay-150"
                     style="font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 10px auto 20px; font-weight: 500;">
-                    Vivencie o renovo de um versículo a cada manhã. <span class="highlight-sub">Um toque de céu para sua
-                        vida, e um presente eterno para quem você ama.</span>
+                    👇 Assista ao vídeo abaixo e descubra como o <span class="highlight-sub">Potinho da Bênção</span>
+                    pode transformar o seu dia a dia!
                 </p>
 
-                <div class="cta-group animate-on-scroll delay-400" style="margin-top: 2rem;">
+                <!-- Wistia Video -->
+                <div class="hero-video-wrapper animate-on-scroll delay-300"
+                    style="max-width: 360px; margin: 0 auto 2rem;">
+                    <wistia-player media-id="r67q5xf1gx" aspect="0.5625"></wistia-player>
+                </div>
+
+                <div class="cta-group animate-on-scroll delay-400" style="margin-top: 1rem;">
                     <a href="#"
                         onclick="document.getElementById('offer').scrollIntoView({behavior: 'smooth'}); return false;"
-                        class="btn btn-primary">EU QUERO</a>
+                        class="btn btn-primary">🙏 QUERO TER ACESSO AGORA</a>
                     <span class="secure-badge"><i data-lucide="lock"></i> Compra 100% Segura</span>
                 </div>
             </div>
